@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import GameBoard from "./GameBoard";
 import KeyBoard from "./KeyBoard";
@@ -5,8 +7,8 @@ import { useState, createContext, useEffect } from "react";
 import { defaultBoard } from "./GameBoard";
 import { generateWords } from "./Words";
 import GameSummary from "./GameSummary";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 import WordleNavbar from "./WordleNavbar";
 export const AppContext = createContext();
@@ -41,7 +43,7 @@ const Wordle = () => {
     for (let i = 0; i < 5; i++) {
       word += board[currentState.currentAttempt][i].toLowerCase();
     }
-    if (wordSet.has(`${word}\r`)) {
+    if (wordSet.has(`${word}`)) {
       //console.log("yes");
       setcurrentState({
         ...currentState,
@@ -65,16 +67,17 @@ const Wordle = () => {
     }
     //console.log(gameState.gameEnd,gameState.guessWord)
   };
-  const notify = () => toast.warn('Word not found', {
-    autoClose: 2000,
-    position: "top-center",
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: false,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-    className: 'toast-message'
+  const notify = () =>
+    toast.warn("Word not found", {
+      autoClose: 2000,
+      position: "top-center",
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      className: "toast-message",
     });
   const OnDelete = () => {
     if (currentState.LetterPos === 0) return;
@@ -101,29 +104,29 @@ const Wordle = () => {
 
   return (
     <>
-    <div className="wordle-Container">
-      <WordleNavbar/>
-      <AppContext.Provider
-        value={{
-          restartGame,
-          board,
-          SetBoard,
-          OnSelectLetter,
-          OnEnter,
-          OnDelete,
-          currentState,
-          wordSet,
-          incorrectLetter,
-          setIncorrectLetter,
-          correctWord,
-          gameState,
-        }}
-      >
-        <GameBoard />
-        {gameState.gameEnd ? <GameSummary /> : <KeyBoard/>}
-      </AppContext.Provider>
-    </div>
-       <ToastContainer />
+      <div className="wordle-Container">
+        <WordleNavbar />
+        <AppContext.Provider
+          value={{
+            restartGame,
+            board,
+            SetBoard,
+            OnSelectLetter,
+            OnEnter,
+            OnDelete,
+            currentState,
+            wordSet,
+            incorrectLetter,
+            setIncorrectLetter,
+            correctWord,
+            gameState,
+          }}
+        >
+          <GameBoard />
+          {gameState.gameEnd ? <GameSummary /> : <KeyBoard />}
+        </AppContext.Provider>
+      </div>
+      <ToastContainer />
     </>
   );
 };
