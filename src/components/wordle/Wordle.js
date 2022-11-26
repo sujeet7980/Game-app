@@ -50,7 +50,7 @@ const Wordle = () => {
         currentAttempt: currentState.currentAttempt + 1,
         LetterPos: 0,
       });
-      if (`${word}\r` === correctWord.toLowerCase()) {
+      if (`${word}` === correctWord.toLowerCase()) {
         setGameState({ gameEnd: true, guessWord: true });
       } else if (currentState.currentAttempt === 5)
         setGameState({ gameEnd: true });
