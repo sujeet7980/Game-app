@@ -43,7 +43,7 @@ const Wordle = () => {
     for (let i = 0; i < 5; i++) {
       word += board[currentState.currentAttempt][i].toLowerCase();
     }
-    console.log(wordSet, word, wordSet.has(word));
+    // console.log(wordSet, word, wordSet.has(word));
     if (wordSet.has(`${word}`)) {
       //console.log("yes");
       setcurrentState({

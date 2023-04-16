@@ -1,12 +1,14 @@
 /** @format */
 
-import React from "react";
-
+import React, { useState } from "react";
+import Rules from "./Rules";
+import 'react-responsive-modal/styles.css';
 const WordleNavbar = () => {
+  
   return (
     <nav className=" wordle-nav d-flex justify-content-between">
+        <Rules/>
       <div className="left-side p-2 ">
-        <span class="material-symbols-sharp">help</span>
       </div>
       <div className="Game-name h1 ">
         <em>WORDLE</em>
