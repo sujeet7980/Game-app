@@ -13,8 +13,7 @@ import "./style.css";
 import WordleNavbar from "./WordleNavbar";
 export const AppContext = createContext();
 const Wordle = () => {
-  //console.log(generateWords)
-  // console.log(board);
+  const emptyBoard=[["","","","",""],["","","","",""],["","","","",""],["","","","",""],["","","","",""],["","","","",""]];
   const [board, SetBoard] = useState(defaultBoard);
   const [currentState, setcurrentState] = useState({
     LetterPos: 0,
@@ -35,17 +34,15 @@ const Wordle = () => {
     setcurrentState({ ...currentState, LetterPos: currentState.LetterPos + 1 });
   };
   const OnEnter = () => {
-    //console.log(currentState)
     if (currentState.LetterPos !== 5) return;
-    // const summary = document.querySelector(".result");
-    // summary.textContent = "";
+
     let word = "";
     for (let i = 0; i < 5; i++) {
       word += board[currentState.currentAttempt][i].toLowerCase();
     }
-    // console.log(wordSet, word, wordSet.has(word));
+    // word+="\r";
+    console.log(word,wordSet);
     if (wordSet.has(`${word}`)) {
-      //console.log("yes");
       setcurrentState({
         ...currentState,
         currentAttempt: currentState.currentAttempt + 1,
@@ -58,15 +55,13 @@ const Wordle = () => {
     } else {
       notify();
       const newBoard = [...board];
-      console.log(newBoard);
+      // console.log(newBoard);
       for (let i = 0; i < 5; i++) {
         newBoard[currentState.currentAttempt][i] = "";
       }
       SetBoard(newBoard);
       setcurrentState({ ...currentState, LetterPos: 0 });
-      // summary.insertAdjacentHTML("afterbegin", html);
     }
-    //console.log(gameState.gameEnd,gameState.guessWord)
   };
   const notify = () =>
     toast.warn("Word not found", {
@@ -88,17 +83,15 @@ const Wordle = () => {
     setcurrentState({ ...currentState, LetterPos: currentState.LetterPos - 1 });
   };
   const restartGame = () => {
-    window.location.reload();
-    // SetBoard(EmptyBoard);
-    // setcurrentState({LetterPos:0 ,currentAttempt:0});
-    // setIncorrectLetter([]);
-    // setCorrectWord("")
-    // setGameState({gameEnd:false,guessWord:false});
+    SetBoard(emptyBoard);
+    setcurrentState({LetterPos:0 ,currentAttempt:0});
+    setIncorrectLetter([]);
+    setCorrectWord("")
+    setGameState({gameEnd:false,guessWord:false});
   };
   useEffect(() => {
     generateWords().then((words) => {
       setWordSet(words.wordBank);
-      //console.log(words.todayWord)
       setCorrectWord(words.todayWord.toUpperCase());
     });
   }, []);
@@ -124,6 +117,7 @@ const Wordle = () => {
           }}
         >
           <GameBoard />
+          {/* <GameSummary/> */}
           {gameState.gameEnd ? <GameSummary /> : <KeyBoard />}
         </AppContext.Provider>
       </div>

@@ -3,7 +3,6 @@ import { AppContext } from './Wordle'
 const Keys = ({keyVal,bigButton,disabled}) => {
     const {OnDelete,OnEnter,OnSelectLetter}=useContext(AppContext)
     const selectLetter=()=>{
-        //console.log(keyVal)
         if(keyVal==='DELETE'){
           OnDelete();
         }

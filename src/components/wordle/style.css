@@ -1,20 +1,16 @@
-*{
-    margin: 0;
-    
-  }
   .wordle-Container{
     text-align: center;
     background-image: radial-gradient( circle 610px at 5.2% 51.6%,  rgba(5,8,114,1) 0%, rgba(7,3,53,1) 97.5% );
     width: 100%;
     height: 100vh;
     color: white;
-   display: flex;
-   flex-direction: column;
-   padding-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 18px;
   }
   
   .game-board{
-    margin-top: 78px;
+    margin-top: 3rem;
     align-self: center;
     position: relative;
   }
@@ -22,17 +18,17 @@
     display: flex;
   }
   .input-element{
-    margin: 3px;
+    margin: 0.12rem;
     width: 3rem;
-    height: 3.2rem;
+    height: 3.5rem;
     border: 1px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 2.5rem;
   }
   .keyboard{
-   margin-top: 50px;
+   margin-top: 5rem;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -53,14 +49,15 @@
     flex-direction: row;
   }
   .keyboard-button{
-    border: 1px solid white;
-    width: 50px;
-    font-size: 30px;
-    padding: 2px;
-    margin: 3px;
+      border: 0.1rem solid white;
+      width: 2.6rem;
+      height: 3.3rem;
+      font-size: 1.8rem;
+      padding: .3rem;
+      margin: .2rem;
   }
   #big{
-    width: 120px;
+    width: 7rem;
     justify-content: center;
     align-items: center;
   }
@@ -95,7 +92,7 @@
     background-color: rgb(15, 15, 109);
   }
   .wordle-nav{
-    width: 600px;
+    width: 40%;
    border-bottom: 1px solid rgb(255, 255, 255);
    justify-content: center;
    align-items: center;
@@ -104,39 +101,115 @@
   .left-side .right-side>span{
     cursor: pointer;
   }
-  /* .modal {
-    font-size: 12px;
-    width: 500px;
-    height: 400px;
+.box{
+  border: 0.1rem solid grey;
+  padding: 0.1rem;
+  margin: 0.2rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  @media only screen and (max-width: 1000px) {
+    .wordle-nav{
+      width: 60%;
+    }
+    .keyboard-button{
+      border: 0.1rem solid white;
+      width: 2rem;
+      height: 3rem;
+      font-size: 1.5rem;
+      padding: .2rem;
+      margin: .2rem;
+    }
+    #big{
+      width: 6rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .input-element{
+      margin: 0.1rem;
+      width: 2.8rem;
+      height: 3.5rem;
+      border: 1px solid white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.7rem;
+    }
+    .wrapper{
+      height: 25rem;
+    }
+    .Button{
+      font-size: 1.3rem;
+      line-height: 1.4rem;
+      padding:  1rem 1rem;
+    }
   }
-  .modal > .header {
-    width: 100%;
-    border-bottom: 1px solid gray;
-    font-size: 18px;
-    text-align: center;
-    padding: 5px;
+  @media only screen and (max-width: 700px) {
+    .wordle-nav{
+      width: 100%;
+    }
+    .keyboard-button{
+      border: 0.1rem solid white;
+      width: 1.7rem;
+      height: 2.2rem;
+      font-size: 1.2rem;
+      padding: .1rem;
+      margin: .1rem;
+    }
+    #big{
+      width: 4.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .input-element{
+      margin: 0.1rem;
+      width: 2.5rem;
+      height: 3rem;
+      font-size: 2.2rem;
+      border: 1px solid white;
+    }
+    .wrapper{
+      height: 18rem;
+    }
+    .Button{
+      font-size: 1rem;
+      line-height: 1rem;
+      padding:  0.8rem 0.8rem;
+    }
   }
-  .modal > .content {
-    width: 100%;
-    padding: 10px 5px;
+  @media only screen and (max-width: 480px) {
+    .wordle-nav{
+      width: 100%;
+    }
+    .keyboard-button{
+      border: 0.1rem solid white;
+      width: 1.7rem;
+      height: 2.2rem;
+      font-size: 1.2rem;
+      padding: .1rem;
+      margin: .1rem;
+    }
+    #big{
+      width: 4.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .input-element{
+      margin: 0.1rem;
+      width: 2.5rem;
+      height: 3rem;
+      font-size: 2.2rem;
+      border: 1px solid white;
+    }
+    .wrapper{
+      height: 15rem;
+    }
+    .Button{
+      font-size: 0.6rem;
+      line-height: 0.8rem;
+      padding:  0.5rem 0.5rem;
+    }
   }
-  .modal > .actions {
-    width: 100%;
-    padding: 10px 5px;
-    margin: auto;
-    text-align: center;
-  }
-  .modal > .close {
-    cursor: pointer;
-    position: absolute;
-    display: block;
-    padding: 2px 5px;
-    line-height: 20px;
-    right: -10px;
-    top: -10px;
-    font-size: 24px;
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid #cfcece;
-  }
-   */

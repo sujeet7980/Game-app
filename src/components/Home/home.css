@@ -79,7 +79,7 @@
 .wrapper{
     margin-top: 50px;
     width: 80%;
-    height: 80vh;
+    height: 45rem;
     overflow: hidden;
     position: relative;
 }
@@ -101,6 +101,7 @@
 }
 .game-image3>img{
     width: 60%;
+    height: 100%;
     object-fit: cover;
 }
 .game-image1>img{
@@ -109,27 +110,23 @@
     height: 100%;
     object-fit: cover;
 }
-.button {
+.Button {
     background: #5E5DF0;
     border-radius: 999px;
     box-shadow: #5E5DF0 0 10px 20px -10px;
     box-sizing: border-box;
-    color: #FFFFFF;
     cursor: pointer;
     font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
-    font-size: 24px;
+    font-size:2rem;
     font-weight: 700;
-    line-height: 39px;
+    line-height: 2rem;
     opacity: 1;
     outline: 0 solid transparent;
-    padding: 8px 18px;
+    padding: 1rem 1rem;
     user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
     width: fit-content;
     word-break: break-word;
     border: 0;
-    text-decoration: none;
   }
 .play-now{
     position: absolute;
