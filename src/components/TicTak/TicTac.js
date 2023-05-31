@@ -1,6 +1,7 @@
 /** @format */
 
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
+import { Form } from "react-bootstrap";
 import Square from "./Square";
 import "./Tictac.css";
 export const AppContext = createContext();
@@ -8,7 +9,8 @@ const TicTac = () => {
   const [Board, setBoard] = useState(Array(9).fill(null));
   const [CurrentPlayer, setCurrentPlayer] = useState("X");
   const [GameEnd, setGameEnd] = useState(false);
-  const opponent = "computer";
+  const [opponent, setOpponent] = useState("computer");
+  // const opponent = "computer";
   const handleInputValue = (ind) => {
     if (GameEnd) {
       console.log("GameEnd");
@@ -30,6 +32,7 @@ const TicTac = () => {
     if (opponent === "computer") {
       let checkBoard = newBoard;
       const id = minimax(checkBoard, "O").id;
+      // console.log(id);
       newBoard[id] = "O";
       setBoard(newBoard);
       if (isWinner(newBoard, "O")) {
@@ -129,34 +132,87 @@ const TicTac = () => {
         `;
     document.querySelector(".winner").innerHTML = html;
   };
+  const restartGame = () => {
+    setBoard(Array(9).fill(null));
+    setCurrentPlayer("X");
+    setGameEnd(false);
+    document.querySelector(".winner").innerHTML = "";
+  };
   return (
     <AppContext.Provider value={{ Board, setBoard, handleInputValue }}>
-      <div className="container">
-        <h1>Tic Tac Toe</h1>
-        <hr className="line" />
-        <div className="game-board-tictac">
-          <div className="board-row">
-            <Square index={0} />
-            <Square index={1} />
-            <Square index={2} />
+      <nav className=" wordle-nav d-flex justify-content-between text-white">
+        {/* <Rules/> */}
+        <div className="d-flex ">
+          <span className=" d-flex justify-self-center align-self-center">
+            Player
+          </span>
+          <Form.Group className="m-1">
+            {/* <Form.Label htmlFor="demo-select-small">Age</Form.Label> */}
+            <Form.Select
+              id="demo-select-small"
+              value={opponent}
+              onChange={(e) => {
+                setOpponent(e.target.value);
+                restartGame();
+              }}
+              size="sm"
+            >
+              <option value="computer">1 </option>
+              <option value="player">2 </option>
+            </Form.Select>
+          </Form.Group>
+        </div>
+        <div className="Game-name h2">
+          <em>Tic-Tac-Toe</em>
+        </div>
+        <div className="right-side ">
+          <span class="material-symbols-sharp ">leaderboard</span>
+          <span class="material-symbols-sharp p-2">settings</span>
+        </div>
+      </nav>
+      <div className="container w-75">
+        <div class="game-board-tictac">
+          <div class="row">
+            <div class="col border-bottom border-end">
+              <Square index={0} />
+            </div>
+            <div class="col border-bottom">
+              <Square index={1} />
+            </div>
+            <div class="col border-bottom border-start">
+              <Square index={2} />
+            </div>
           </div>
-          <div className="board-row">
-            <Square index={3} />
-            <Square index={4} />
-            <Square index={5} />
+          <div class="row">
+            <div class="col border-end">
+              <Square index={3} />
+            </div>
+            <div class="col">
+              <Square index={4} />
+            </div>
+            <div class="col border-start">
+              <Square index={5} />
+            </div>
           </div>
-          <div className="board-row">
-            <Square index={6} />
-            <Square index={7} />
-            <Square index={8} />
+          <div class="row">
+            <div class="col border-top border-end">
+              <Square index={6} />
+            </div>
+            <div class="col border-top">
+              <Square index={7} />
+            </div>
+            <div class="col border-top border-start">
+              <Square index={8} />
+            </div>
           </div>
         </div>
-        <div className="winner"></div>
+
+        <div className="winner mx-auto"></div>
         <button
-          class="button-18"
+          className="button-18 mx-auto"
           role="button"
           onClick={() => {
-            window.location.reload();
+            restartGame();
           }}
         >
           Play Again
@@ -167,4 +223,3 @@ const TicTac = () => {
 };
 
 export default TicTac;
-

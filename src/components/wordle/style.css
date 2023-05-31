@@ -146,6 +146,18 @@
       line-height: 1.4rem;
       padding:  1rem 1rem;
     }
+    .game-board-tictac{
+      width: 30rem;
+      height: 30rem;
+    }
+    .square{
+      width: 8rem;
+      height: 8rem;
+      font-size: 5rem;
+    }
+    .button-18{
+      margin-top: 9rem;
+    }
   }
   @media only screen and (max-width: 700px) {
     .wordle-nav{
@@ -178,6 +190,18 @@
       font-size: 1rem;
       line-height: 1rem;
       padding:  0.8rem 0.8rem;
+    }
+    .game-board-tictac{
+      width: 25rem;
+      height: 25rem;
+    }
+    .square{
+      width: 7rem;
+      height: 7rem;
+      font-size: 4rem;
+    }
+    .button-18{
+      margin-top: 3rem;
     }
   }
   @media only screen and (max-width: 480px) {
@@ -214,5 +238,17 @@
     }
     .nav-option{
       display: none;
+    }
+    .game-board-tictac{
+      width: 20rem;
+      height: 20rem;
+    }
+    .square{
+      width: 5rem;
+      height: 5rem;
+      font-size: 3rem;
+    }
+    .button-18{
+      margin-top: 1rem;
     }
   }
