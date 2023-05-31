@@ -86,14 +86,17 @@ const Wordle = () => {
     SetBoard(emptyBoard);
     setcurrentState({LetterPos:0 ,currentAttempt:0});
     setIncorrectLetter([]);
-    setCorrectWord("")
+    setNewWord();
     setGameState({gameEnd:false,guessWord:false});
   };
-  useEffect(() => {
+  const setNewWord = ()=>{
     generateWords().then((words) => {
       setWordSet(words.wordBank);
       setCorrectWord(words.todayWord.toUpperCase());
     });
+  }
+  useEffect(() => {
+    setNewWord();
   }, []);
 
   return (

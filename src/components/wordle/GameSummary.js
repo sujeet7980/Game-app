@@ -8,15 +8,15 @@ const GameSummary = () => {
     <div>
       <h2>{gameState.guessWord ? "You won" : "You failed!!"}</h2>
       <h1>Right Word : {correctWord}</h1>
-      <button
-        class="newGame"
+       <button
+        class="newGame btn btn-primary text-white"
         onClick={() => {
-          window.location.reload();
+          restartGame();
         }}
       >
         {" "}
-        Play Again!!
-      </button>
+        Play Again
+      </button> 
     </div>
   );
 };

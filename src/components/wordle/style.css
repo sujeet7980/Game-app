@@ -205,11 +205,14 @@
       border: 1px solid white;
     }
     .wrapper{
-      height: 15rem;
+      height: 12rem;
     }
     .Button{
       font-size: 0.6rem;
       line-height: 0.8rem;
       padding:  0.5rem 0.5rem;
+    }
+    .nav-option{
+      display: none;
     }
   }
